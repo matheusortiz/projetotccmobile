@@ -1,18 +1,30 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <h2>Sistema de Gerenciamento de Curso Simplificado</h2>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <img src="assets/imgs/tela-inicial.png" alt="logo">
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <form>
+    <ion-item>
+      <ion-label stacked>Email:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Senha:</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+    <ion-list radio-group>
+      <ion-item>
+        <ion-label>Aluno</ion-label>
+        <ion-radio value="aluno" checked="true"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Administrador</ion-label>
+        <ion-radio value="admin" disabled="true"></ion-radio>
+      </ion-item>
+    </ion-list>
+    <button ion-button block>Entrar</button>
+  </form>
+  <button ion-button block clear>Esqueci minha senha.</button>
+
+
 </ion-content>
