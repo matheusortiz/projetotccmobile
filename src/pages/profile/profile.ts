@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StorageService } from '../../services/storage.service';
+import { AlunoDTO } from '../../models/aluno.dto';
+import { AlunoService } from '../../services/domain/aluno.service';
 
 @IonicPage()
 @Component({
@@ -9,18 +11,23 @@ import { StorageService } from '../../services/storage.service';
 })
 export class ProfilePage {
 
-  email: string;
+  aluno : AlunoDTO;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public storage: StorageService) {
+    public storage: StorageService,
+    public alunoService: AlunoService) {
   }
 
   ionViewDidLoad() {
     let localUser = this.storage.getLocalUser();
     if (localUser && localUser.email) {
-      this.email = localUser.email;
+      this.alunoService.findByEmail(localUser.email)
+        .subscribe(response => {
+          this.aluno = response;
+        },
+        error => {})
     }
   }
 }

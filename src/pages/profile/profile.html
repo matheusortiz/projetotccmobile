@@ -8,7 +8,12 @@
 </ion-header>
 
 <ion-content padding>
-  <p>Bem-vindo, </p>
-{{ email }}
-<p>Você logou com sucesso.</p>
+  <p>Olá, você logou com sucesso!</p>
+  <h3>{{aluno?.nome}}</h3>
+  <p>CPF: {{aluno?.cpf}}</p>
+  <p>Email: {{aluno?.email}}</p>
+  <p>Telefone: {{aluno?.telefone}}</p>
+  <p>Endereço: {{aluno?.endereco}}</p>
+  <p>Cidade: {{aluno?.municipio}}</p>
+  <p>UF: {{aluno?.estado}}</p>
 </ion-content>

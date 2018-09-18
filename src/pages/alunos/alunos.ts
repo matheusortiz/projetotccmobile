@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlunoService } from '../../services/domain/aluno.service';
+import { AlunoDTO } from '../../models/aluno.dto';
 
 @IonicPage()
 @Component({
@@ -9,7 +10,11 @@ import { AlunoService } from '../../services/domain/aluno.service';
 })
 export class AlunosPage {
 
-  constructor(public navCtrl: NavController,
+
+  items: AlunoDTO;
+
+  constructor(
+    public navCtrl: NavController,
     public navParams: NavParams,
     public alunoService: AlunoService) {
   }
@@ -17,11 +22,9 @@ export class AlunosPage {
   ionViewDidLoad() {
     this.alunoService.findAll()
       .subscribe(response => {
-        console.log(response);
+        this.items = response;
       },
-        error => {
-          console.log(error);
-        });
+      error => {});
   }
 
 }

@@ -1,17 +1,30 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AlunoDTO } from "../../models/aluno.dto";
 import { Observable } from "rxjs/Rx";
 import { API_CONFIG } from "../../config/api.config";
+import { StorageService } from "../storage.service";
 
 @Injectable()
 export class AlunoService{
     
-    constructor(public http: HttpClient){
+    constructor(public http: HttpClient, public storage : StorageService){
 
     }
 
     findAll() : Observable<AlunoDTO> {
-        return this.http.get<AlunoDTO>(`${API_CONFIG.baseUrl}/alunos/01119076080`);
+        return this.http.get<AlunoDTO>(`${API_CONFIG.baseUrl}/alunos/`);
     }
+
+    findByEmail(email: string) : Observable<AlunoDTO>{
+
+        let token = this.storage.getLocalUser().token;
+        let authHeader = new HttpHeaders({'Authorization': 'Bearer ' + token});
+
+        return this.http.get<AlunoDTO>(
+            `${API_CONFIG.baseUrl}/alunos/email?value=${email}`,
+            {'headers': authHeader});
+    }
+
+
 }

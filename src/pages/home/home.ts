@@ -34,7 +34,7 @@ export class HomePage {
         this.auth.authenticate(this.creds)
             .subscribe(response => {
                 this.auth.successfullLogin(response.headers.get('Authorization'));
-                this.navCtrl.setRoot('AlunosPage');
+                this.navCtrl.setRoot('ProfilePage');
             },
                 error => { });
     }
