@@ -10,6 +10,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AlunoService } from '../services/domain/aluno.service';
 import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage.service';
+import { AuthInterceptorProvider } from '../interceptors/auth-interceptor';
+import { ErrorInterceptorProvider } from '../interceptors/error-interceptor';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { StorageService } from '../services/storage.service';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AlunoService,
     AuthService,
-    StorageService
+    StorageService,
+    AuthInterceptorProvider,
+    ErrorInterceptorProvider
   ]
 })
 export class AppModule {}

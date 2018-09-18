@@ -18,12 +18,7 @@ export class AlunoService{
 
     findByEmail(email: string) : Observable<AlunoDTO>{
 
-        let token = this.storage.getLocalUser().token;
-        let authHeader = new HttpHeaders({'Authorization': 'Bearer ' + token});
-
-        return this.http.get<AlunoDTO>(
-            `${API_CONFIG.baseUrl}/alunos/email?value=${email}`,
-            {'headers': authHeader});
+        return this.http.get<AlunoDTO>(`${API_CONFIG.baseUrl}/alunos/email?value=${email}`);
     }
 
 
