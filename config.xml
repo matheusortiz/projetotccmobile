@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.pucminas.tcc" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.pucminas.tccortiz" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Sistema de Gerenciamento de Cursos Simplificado</name>
     <description>Aplicativo desenvolvido para o TCC da pós-graduação em Engenharia do Software.</description>
     <author email="matheus7@gmail.com" href="https://www.linkedin.com/in/matheusortiz/">Matheus Silva Ortiz</author>
@@ -82,4 +82,5 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^2.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <engine name="android" spec="^7.1.1" />
 </widget>
