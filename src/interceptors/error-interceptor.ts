@@ -5,6 +5,8 @@ import { StorageService } from '../services/storage.service';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
 import { FieldMessage } from '../models/fieldmessage';
 
+/* classe que intercepta e trata os erros do front-end */
+
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 

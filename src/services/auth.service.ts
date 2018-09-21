@@ -6,6 +6,7 @@ import { LocalUser } from "../models/local_user";
 import { StorageService } from "./storage.service";
 import { JwtHelper } from 'angular2-jwt';
 
+/* serviço responsavel pela autenticação no back-end */
 
 @Injectable()
 export class AuthService {
@@ -15,6 +16,7 @@ export class AuthService {
     constructor(public http: HttpClient, public storage: StorageService) {
     }
 
+    /* realiza a autenticação no endpoint login do back-end */
     authenticate(creds: CredenciaisDTO) {
         return this.http.post(
             `${API_CONFIG.baseUrl}/login`,
@@ -25,6 +27,7 @@ export class AuthService {
             });
     }
 
+    /* atualiza o token do usuário já logado na aplicação */
     refreshToken() {
         return this.http.post(
             `${API_CONFIG.baseUrl}/auth/refresh_token`, 
@@ -35,6 +38,7 @@ export class AuthService {
             });
     }
 
+    /* login com sucesso, atribui as informações do usuário ao localUser */
     successfullLogin(authorizationValue: string) {
         let tok = authorizationValue.substring(7);
         let user: LocalUser = {
@@ -44,6 +48,7 @@ export class AuthService {
         this.storage.setLocalUser(user);
     }
 
+    /* método para sair do sistema anula o localUser */
     logout() {
         this.storage.setLocalUser(null);
     }

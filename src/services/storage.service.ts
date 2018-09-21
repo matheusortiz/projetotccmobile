@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { LocalUser } from "../models/local_user";
 import { STORAGE_KEYS } from "../config/storage_keys.config";
 
+/* armazena informações do usuário no localStorage */
 
 @Injectable()
 export class StorageService {

@@ -22,12 +22,16 @@ export class HomePage {
         public auth: AuthService) {
     }
 
+    /* desabilita o menu swipe na tela de login */
     ionViewWillEnter() {
         this.menu.swipeEnable(false);
     }
+
+    /* reabilita o menu swipe na tela inicial */
     ionViewDidLeave() {
         this.menu.swipeEnable(true);
     }
+
 
     ionViewDidEnter() {
         this.auth.refreshToken()
@@ -38,7 +42,7 @@ export class HomePage {
           error => {});  
       }
 
-
+    /* realiza o login e direciona para a ágina de profile */
     login() {
         this.auth.authenticate(this.creds)
             .subscribe(response => {

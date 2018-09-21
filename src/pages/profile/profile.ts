@@ -20,6 +20,7 @@ export class ProfilePage {
     public alunoService: AlunoService) {
   }
 
+  /* ao carregar busca informações do aluno logado */
   ionViewDidLoad() {
     let localUser = this.storage.getLocalUser();
     if (localUser && localUser.email) {
